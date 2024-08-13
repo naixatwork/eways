@@ -3,12 +3,10 @@
 ### todos
 
 - [x] architecture guideline
-- [ ] responsiveness
-- [ ] tests
-- [ ] welcome page
-    - [ ] three.js scene
-- [ ] router guard
-  - [ ] hold auth state with zustand
+- [x] responsiveness
+- [x] welcome page
+- [x] router guard
+  - [x] hold auth state with zustand
 
 ### Architecture and Philosophy
 
