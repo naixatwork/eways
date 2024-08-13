@@ -1,21 +1,25 @@
 import {
   createBrowserRouter,
   Navigate,
-  Outlet,
   RouterProvider,
 } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { Spinner } from 'react-bootstrap';
 import AuthRouteGuard from '#/app/auth/authRouteGuard.tsx';
+import Layout from '#/app/layout.tsx';
 
 const LazyAuthRouting = lazy(() => import('#/business/auth/auth.routes.tsx'));
+
+const LazyWelcomeRouting = lazy(
+  () => import('#/business/welcome/welcome.routes.tsx')
+);
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: (
       <AuthRouteGuard>
-        <Outlet />
+        <Layout />
       </AuthRouteGuard>
     ),
     children: [
@@ -28,12 +32,12 @@ const router = createBrowserRouter([
         element: (
           <Suspense
             fallback={
-              <div className="flex h-full justify-center items-center flex-col gap-5">
-                <h1 className="text-2xl">We are Loading your dashboard...</h1>
+              <div className="d-flex justify-content-center align-items-center">
+                <Spinner animation="border" role="status" />
               </div>
             }
           >
-            <div>hi</div>
+            <LazyWelcomeRouting />
           </Suspense>
         ),
       },

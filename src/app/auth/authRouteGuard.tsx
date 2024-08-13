@@ -1,5 +1,4 @@
 import useAuthStore from '#/core/auth/auth.store.ts';
-import { useNavigate } from 'react-router-dom';
 import { ReactNode } from 'react';
 
 type AuthRouteGuardProps = {
@@ -8,11 +7,10 @@ type AuthRouteGuardProps = {
 
 const AuthRouteGuard = ({ children }: AuthRouteGuardProps) => {
   const { isAuthenticated } = useAuthStore();
-  const navigate = useNavigate();
 
   if (!isAuthenticated) {
-    console.log('called');
-    navigate('/auth');
+    const currentPathOrigin = window.location.origin;
+    window.location.href = `${currentPathOrigin}/auth`;
     return children;
   }
 
