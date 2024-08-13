@@ -11,6 +11,7 @@ import useAuthStore from '#/core/auth/auth.store.ts';
 const loginSchema = yup.object().shape({
   username: yup.string().required(),
   password: yup.string().required(),
+  remember: yup.boolean(),
 });
 
 const Login = () => {
@@ -91,6 +92,13 @@ const Login = () => {
                 </p>
               )}
             </Form.Group>
+            <Form.Check // prettier-ignore
+              {...register('remember')}
+              type="switch"
+              label="remember me"
+              id="disabled-custom-switch"
+              className="mb-2"
+            />
             <div className="d-flex gap-2">
               <Button type="submit" variant="primary" disabled={!isValid}>
                 Login

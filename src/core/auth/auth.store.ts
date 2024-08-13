@@ -12,13 +12,15 @@ const useAuthStore = create<useAuthStoreType>((set) => ({
   user: {
     username: '',
     password: '',
+    remember: false,
   },
   isAuthenticated: false,
-  login: ({ username, password }: User) =>
+  login: ({ username, password, remember }: User) =>
     set({
       user: {
         username,
         password,
+        remember,
       },
       isAuthenticated: true,
     }),
@@ -27,6 +29,7 @@ const useAuthStore = create<useAuthStoreType>((set) => ({
       user: {
         username: '',
         password: '',
+        remember: false,
       },
       isAuthenticated: false,
     }),
