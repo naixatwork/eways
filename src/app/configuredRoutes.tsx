@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { Spinner } from 'react-bootstrap';
-import AuthRouteGuard from '#/core/auth/authRouteGuard.tsx';
+import AuthRouteGuard from '#/app/auth/authRouteGuard.tsx';
 
 const LazyAuthRouting = lazy(() => import('#/business/auth/auth.routes.tsx'));
 

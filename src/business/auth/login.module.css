@@ -1,0 +1,9 @@
+.login__card {
+    max-width: 512px;
+}
+
+.login__img {
+    aspect-ratio: 2/1;
+    object-position: 50% 25%;
+    object-fit: cover;
+}
